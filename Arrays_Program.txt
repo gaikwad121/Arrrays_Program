@@ -1,0 +1,276 @@
+package Com.Array_Program;
+
+import java.util.Arrays;
+ 1) rotate the array to kth position
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,5,6,7,8,9};
+		int k=3;
+		int ans[]=rotateArr(arr, k);
+		System.out.println(Arrays.toString(ans));
+	}
+	static int [] rotateArr(int arr[],int k) {
+		int n=arr.length;
+		k=k%n;
+		int j=0;
+		int ans[]=new int[arr.length];
+		for(int i=n-k;i<n;i++) {
+			ans[j++]=arr[i];
+		}
+		for(int i=0;i<n-k;i++) {
+			ans[j++]=arr[i];
+		}
+		return ans;
+	}
+}
+2)public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,5,6,7};
+		int ans[]=reverseArr(arr);
+		System.out.println(Arrays.toString(ans));
+	}
+	static int [] reverseArr(int arr[]) {
+		int j=arr.length-1; int i=0;
+		while(i<j) {
+			int temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+			i++;
+			j--;
+		}
+		return arr;
+	}
+}
+3) Find the second Largest Element
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,9,8,76,43,23,56,31,11};
+		secondLargest(arr);
+	}
+	static int secondLargest(int arr[]) {
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]>max) {
+				max=arr[i];
+			}
+		}
+	int secondmax=Integer.MIN_VALUE;
+	for(int i=0;i<arr.length;i++) {
+		if(arr[i]!=max && arr[i]>secondmax) {
+			secondmax=arr[i];
+		}
+	}
+	System.out.println(secondmax);
+		return secondmax;
+	}
+}
+4) Find the Unique number in a given array
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,1,2,3,4,5};
+		UniqueNum(arr);
+	}
+	static void UniqueNum(int arr[]) {
+	for(int i=0;i<arr.length;i++) {
+	for(int j=i+1;j<arr.length;j++) {
+		if(arr[i]==arr[j]) {
+			arr[i]=-1;
+			arr[j]=-1;
+		}
+	}
+	}
+	int ans=0;
+	for(int i=0;i<arr.length;i++) {
+		if(arr[i]>0) {
+		ans=arr[i];
+			
+		}			
+	}
+	System.out.println(ans);
+	}
+}
+5)public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {8,56,78,23,1,45,87};
+		int ans[]=deleteEle(arr, 3);
+		System.out.println(Arrays.toString(ans));
+	}
+	static int [] deleteEle(int arr[],int removeIndex) {
+		int j=0;
+		int ans[]=new int [arr.length-1];
+		for(int i=0;i<arr.length;i++) {
+			if(i!=removeIndex) {
+				ans[j++]=arr[i];
+			}
+		}
+		return ans;
+	}
+}
+6) public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,5,6,7,8,9};
+		minEle(arr);
+	}
+	static int minEle(int arr[]) {
+		int min=Integer.MAX_VALUE;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]<min) {
+				min=arr[i];
+			}
+		}
+		System.out.println(min);
+		return min;
+	}
+}
+7) Find the biggest element in the array
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {87,54,12,36,56,41,25,78,96};
+		biggestEle(arr);
+	}
+	static int biggestEle(int arr[]) {
+		int max=Integer.MIN_VALUE;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]>max) {
+				max=arr[i];
+			}
+		}
+		System.out.println(max);
+		return max;
+	}
+}
+8) Arrays Element in a descending order
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,5,7,8,9};
+		int ans[]=arrDecending(arr);
+		System.out.println(Arrays.toString(ans));
+	}
+	static int[] arrDecending(int arr[]){
+	 for(int i=0;i<arr.length;i++) {
+	 for(int j=i+1;j<arr.length;j++) {
+		 if(arr[i]<arr[j]) {
+		 int temp=arr[i];
+		 arr[i]=arr[j];
+		 arr[j]=temp;
+	 }
+	 }}
+		return arr;
+		
+	}}
+
+9)arrange array element in ascending order
+
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {9,8,7,6,5,1,2,4,3};
+		int[] ans=ascendingArr(arr);
+		System.out.println(Arrays.toString(ans));
+	}
+	static int [] ascendingArr(int arr[]) {
+		for(int i=0;i<arr.length;i++) {
+		for(int j=i+1;j<arr.length;j++) {
+			if(arr[i]>arr[j]) {
+			int temp=arr[i];
+			arr[i]=arr[j];
+			arr[j]=temp;
+		}
+		}}
+		return arr;
+	}
+}
+10) Find the average of array element
+public class Arrays_Program{
+	public static void main(String[] args) {
+	int arr[]= {1,2,3,4,5,6,7,8,9};
+	avgElement(arr);
+		
+	}
+	static double avgElement(int arr[]) {
+		double avg=0;
+		double sum=0;
+		for(int i=0;i<arr.length;i++) {
+			sum+=arr[i];
+		}
+		avg=sum/arr.length;
+		System.out.println(avg);
+		return  avg;
+	}
+}
+11) search an Element in Array
+public class Arrays_Program{
+	public static void main(String[] args) {
+		int arr[]= {1,2,3,4,5,6,7};
+		int x=8;
+		SearchNum(arr,x);
+	}
+	static int SearchNum(int arr[],int x) {
+		int count=0;
+		for(int i=0;i<arr.length;i++) {
+			if(arr[i]==x){
+				count++;
+			}
+		}
+		if(count>0) {
+			System.out.println("the number is found : "+x+" "+"count"+count);
+		} else {
+			System.out.println("The number is not found");
+		}
+		return x;
+	}
+}
+12) write program to add the elements /sum of array elements in java
+public class Arrays_Program {
+	public static void main(String[] args) {
+		int arr[]= {45,21,34,90,31,89,92};
+		sumElement(arr);
+	}
+	static int sumElement(int arr[]) {
+		int sum=0;
+		for(int i=0;i<arr.length;i++) {
+			sum+=arr[i];
+		}
+		System.out.println(sum);
+		return sum;
+	}
+}
+	13) copy all element from array to another
+public static void main(String[] args) {
+	        int arr[] = {1, 2, 3, 4, 5, 6}; 
+	        int ans[] = Arrays.copyOf(arr, arr.length); // Efficient array copy
+	        System.out.println(Arrays.toString(ans)); // Print copied array
+	    }
+	}
+
+
+	13(2) copy all element from one array to another
+	int arr[]= {1,2,3,4,5,6};
+	copyArr(arr);
+}
+static void copyArr(int arr[]) {
+int ans[]= new int [arr.length];
+for(int i=0;i<arr.length;i++) {
+	ans[i]=arr[i];
+	System.out.println(ans[i]);
+}
+}
+}
+
+ 14 Java program to reverse the array
+	public static void main(String[] args) {
+		int arr[]= {23,45,67,89,12,56,33,77};
+		int ans[]=reverseArr(arr);
+		for(int i=0;i<ans.length;i++) {
+			System.out.println(ans[i]);
+		}
+	}
+static int []reverseArr(int arr[]){
+	int ans[]=new int[arr.length];
+	int j=0;
+	for(int i=arr.length-1;i>=0;i--) {
+		ans[j++]=arr[i];
+	}
+	
+	return ans;
+}
+}
